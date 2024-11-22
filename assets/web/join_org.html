@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>确认加入企业</title>
+    <meta charset='utf-8'>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" /><!-- 删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 设置苹果工具栏颜色 -->
+    <meta name="format-detection" content="telephone=no, email=no" /><!--忽略页面中的数字识别为电话，忽略email识别 -->
+    <link rel="stylesheet" type="text/css" href="css/join_group.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/IMJSBridge.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</head>
+
+<body>
+    <div class="group-box">
+        <div class="top">
+            <div class="group-info">
+                <img class="group-avatar" id="avatar" />
+                <p class="name"></p>
+                <p class="num" style="margin-left: 30px;margin-right: 30px;text-align: center"></p>
+            </div>
+        </div>
+        <div class="bottom" id="joinBtn" style="display: none;">
+            <div class="box">
+                <div id="ok" class="button primary" style="width: 150px;">同意</div>
+                <div id="refuse" class="button primary"
+                    style="width: 150px; background-color: crimson; margin-top: 15px;">拒绝</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script language="javascript">
+    let orgId = getQueryString('org_id');
+    let code = getQueryString('code');
+    let uid = getQueryString('uid')
+    $(function () {
+        im.onReady();
+        $.getJSON(apiURL + "organizations/" + orgId + "/invitedetail?code=" + code + "&uid=" + uid).then(function (resp) {
+            let data = resp;
+            $(".group-avatar").attr('src', `${apiURL}organizations/${orgId}/logo`);
+            if (data.join_status == 1) {
+                $(".num").text(`你已成功加入${data.org_name}，无需重复操作`);
+                document.getElementById("joinBtn").style.display = "none";
+            } else if (data.join_status == 2) {
+                $(".num").text(`你已拒绝加入${data.org_name}，无需重复操作`);
+                document.getElementById("joinBtn").style.display = "none";
+            } else {
+                $(".num").text(`${data.invite_name}邀请您加入 ${data.org_name}`);
+                document.getElementById("joinBtn").style.display = "block";
+            }
+        }).fail(function (e) {
+            $(".num").text(e.responseJSON.msg);
+            document.getElementById("joinBtn").style.display = "none";
+            document.getElementById("avatar").style.display = "none";
+        })
+        $("#ok").click(function () {
+            $.postJSON(`${apiURL}organizations/${orgId}/join`, { 'uid': uid, 'code': code, 'status': 1 }).then(function (resp) {
+                im.quit();
+            }).fail(function (e) {
+
+            })
+        });
+        $("#refuse").click(function () {
+            $.postJSON(`${apiURL}organizations/${orgId}/join`, { 'uid': uid, 'code': code, 'status': 2 }).then(function (resp) {
+                im.quit();
+            }).fail(function (e) {
+
+            })
+        });
+    })
+</script>
+
+</html>
