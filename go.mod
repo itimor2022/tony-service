@@ -4,13 +4,10 @@ go 1.20
 
 require (
 	github.com/TangSengDaoDao/TangSengDaoDaoServer v1.0.6-0.20240808075150-e72694075568
-	github.com/TangSengDaoDao/TangSengDaoDaoServerLib v1.0.8-0.20240808044558-5942d5e514d0
-	github.com/ethereum/go-ethereum v1.12.2
+	github.com/TangSengDaoDao/TangSengDaoDaoServerLib v1.0.9-0.20241123100847-be0a8df9e7d0
 	github.com/gin-gonic/gin v1.9.1
 	github.com/gocraft/dbr/v2 v2.7.5
-	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
 	github.com/judwhite/go-svc v1.2.1
-	github.com/opentracing/opentracing-go v1.2.1-0.20220228012449-10b1cf09e00b
 	github.com/robfig/cron v1.2.0
 	github.com/spf13/viper v1.16.0
 	github.com/stretchr/testify v1.8.3
@@ -57,6 +54,7 @@ require (
 	github.com/disintegration/imaging v1.6.2 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/eapache/queue v1.1.0 // indirect
+	github.com/ethereum/go-ethereum v1.12.2 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.2 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
@@ -103,6 +101,8 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/olivere/elastic v6.2.37+incompatible // indirect
+	github.com/opentracing/opentracing-go v1.2.1-0.20220228012449-10b1cf09e00b // indirect
+	github.com/panjf2000/ants/v2 v2.10.0 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.8 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
