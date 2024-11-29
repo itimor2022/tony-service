@@ -163,6 +163,6 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-// replace github.com/TangSengDaoDao/TangSengDaoDaoServerLib => ./libs/TangSengDaoDaoServerLib
+replace github.com/TangSengDaoDao/TangSengDaoDaoServerLib => ./libs/TangSengDaoDaoServerLib
 
-// replace github.com/TangSengDaoDao/TangSengDaoDaoServer => ./libs/TangSengDaoDaoServer
+replace github.com/TangSengDaoDao/TangSengDaoDaoServer => ./libs/TangSengDaoDaoServer

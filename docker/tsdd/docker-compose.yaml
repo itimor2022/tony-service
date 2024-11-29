@@ -1,7 +1,7 @@
 version: '3.1'
 services:
   wukongim:  # 悟空IM通讯服务
-    image: registry.cn-shanghai.aliyuncs.com/wukongim/wukongim:latest
+    image: itimor2022/tangsengdaodaoserver:1.2
     restart: always
     ports:
       - "5100:5100"
@@ -11,7 +11,7 @@ services:
       - ./configs/wk.yaml:/root/wukongim/wk.yaml
       - ./logs/wk:/root/wukongim/logs
   tangsengdaodaoserver:  # 唐僧叨叨的业务服务
-    image: registry.cn-shanghai.aliyuncs.com/wukongim/tangsengdaodaoserver:latest
+    image: registry.cn-shanghai.aliyuncs.com/wukongim/tangsengdaodaoserver:v2.0.7-20241104-dev
     restart: always
     command: "api"
     healthcheck:
