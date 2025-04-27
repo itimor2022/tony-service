@@ -164,5 +164,4 @@ require (
 )
 
 replace github.com/TangSengDaoDao/TangSengDaoDaoServerLib => ./libs/TangSengDaoDaoServerLib
-
 replace github.com/TangSengDaoDao/TangSengDaoDaoServer => ./libs/TangSengDaoDaoServer

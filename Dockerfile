@@ -19,8 +19,8 @@ RUN go mod download
 
 # ADD . .
 
-# RUN CGO_ENABLED=1 GOOS=linux go build -ldflags='-w -extldflags "-static"' -installsuffix cgo -o app ./main.go
-RUN CGO_ENABLED=0 GOOS=linux go build -ldflags='-w -extldflags "-static"' -installsuffix cgo -o app ./main.go
+RUN CGO_ENABLED=1 GOOS=linux go build -ldflags='-w -extldflags "-static"' -installsuffix cgo -o app ./main.go
+# RUN CGO_ENABLED=0 GOOS=linux go build -ldflags='-w -extldflags "-static"' -installsuffix cgo -o app ./main.go
 
 
 FROM alpine as prod
