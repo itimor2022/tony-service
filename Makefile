@@ -1,12 +1,12 @@
 build:
-	docker build --platform=linux/amd64 -t qmjk .
+	docker build --platform=linux/amd64 -t mft .
 push:
-	docker tag qmjk itimor2022/qmjk:1.2
-	docker push itimor2022/qmjk:1.2
+	docker tag mft itimor2022/mft:1.2
+	docker push itimor2022/mft:1.2
 deploy:
-	docker build --platform=linux/amd64 -t qmjk .
-	docker tag qmjk itimor2022/qmjk:1.2
-	docker push itimor2022/qmjk:1.2
+	docker build --platform=linux/amd64 -t mft .
+	docker tag mft itimor2022/mft:1.2
+	docker push itimor2022/mft:1.2
 run-dev:
 	docker-compose build;docker-compose up -d
 stop-dev:
