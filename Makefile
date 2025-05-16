@@ -1,12 +1,12 @@
 build:
 	docker build --platform=linux/amd64 -t mft .
 push:
-	docker tag mft itimor2022/mft:1.2
-	docker push itimor2022/mft:1.2
+	docker tag mft itimor2022/mft:1.3
+	docker push itimor2022/mft:1.3
 deploy:
 	docker build --platform=linux/amd64 -t mft .
-	docker tag mft itimor2022/mft:1.2
-	docker push itimor2022/mft:1.2
+	docker tag mft itimor2022/mft:1.3
+	docker push itimor2022/mft:1.3
 run-dev:
 	docker-compose build;docker-compose up -d
 stop-dev:
